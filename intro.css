@@ -1,0 +1,77 @@
+/* CSS 파일 맨 윗줄에 적어주세요 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 테두리 포함해서 사이즈 계산 (이것도 국룰) */
+}
+
+.styled {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgba(220, 0, 0, 1);
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.styled:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+body{
+    background-color: #DF0004;
+}
+
+
+
+.styled:active {
+  box-shadow:
+    inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+header{
+    background-color: #540000;
+    color:#fff;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 900;
+    height: 80px;
+    padding: 19px;
+}
+
+div{
+    margin:auto;
+    background-color: #181111;
+    color:#FF3705;
+    width: 600px;
+    height: 350px;
+    text-align: center;
+    margin: 5% 25% 5% 25%;
+    border-radius: 50px;
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+div > p{
+    padding: 120px 0 20px 0;
+}
+
+footer{
+    color:#fff;
+    text-align: right;
+    padding: 0 10px;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANDA.com</title>
+    <link rel="stylesheet" href="panda.css"> 
+</head>
+<body>
+    <header>
+        <img src="question.png" alt="우엉?" id="open-btn" style="cursor: pointer;"> 
+        <img src="wow.png" alt="으억" id="wow-btn" style="cursor: pointer;">
+    </header>
+    
+    <p id="title" style="text-align: center; font-size: 40px; font-weight: bold;">ㅍㅏㄴㄷㅏ</p>
+    
+    <div>
+        <ul class="panda-list">
+            <li>
+                <img src="panda1.png" alt="신생아기판다">
+                <button>신생아기</button>
+            </li>
+            <li>
+                <img src="panda2.png" alt="유아기판다">
+                <button>유아기</button>
+            </li>
+            <li>
+                <img src="panda3.png" alt="청소년기판다">
+                <button>청소년기</button>
+            </li>
+            <li>
+                <img src="panda4.png" alt="성체판다">
+                <button>성체</button>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>Hello Panda World!</p>
+        <p>@kkesong</p>
+    </footer>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h2>🐼</h2>
+                <span id="close-btn" class="close-area">X</span>
+            </div>
+            <div class="modal-body">
+                <p>Panda, Panda (grrrrah, git)</p>
+                <p>Panda, Panda, Panda, Panda, Panda (git, git, git, git)</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+    <script>
+        // 1. 모달창 기능 (기존 코드 유지)
+        const modal = document.getElementById("modal-overlay");
+        const openBtn = document.getElementById("open-btn");
+        const closeBtn = document.getElementById("close-btn");
+
+        openBtn.addEventListener("click", () => {
+            modal.style.display = "flex";
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // 2. 🐼 판다 콘페티 발사! (새로운 코드로 교체)
+        const wowBtn = document.getElementById("wow-btn");
+        const jsConfetti = new JSConfetti(); // 폭죽 기계 소환
+
+        wowBtn.addEventListener("click", () => {
+            jsConfetti.addConfetti({
+                emojis: ['🐼', '🎍', '🎋'], // 판다와 대나무
+                emojiSize: 80,              // 이모지 크기 (클수록 잘 보임)
+                confettiNumber: 40,         // 한 번에 나오는 개수
+            });
+        });
+
+
+        // ... (이전 모달창, 콘페티 코드들은 그대로 두세요) ...
+
+    // ==========================================
+    // 🐼 판다 확대/축소 기능 (여기부터 복사!)
+    // ==========================================
+
+    // 1. 모든 버튼들을 다 가져옵니다.
+    const buttons = document.querySelectorAll('.panda-list button');
+
+    // 2. 각 버튼마다 클릭 이벤트를 달아줍니다.
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // "내 바로 위에 있는 형제(img)야, 이리 와봐"
+            const img = btn.previousElementSibling; 
+            
+            // 그 이미지에 'zoom' 클래스를 붙여줍니다. (커져라!)
+            img.classList.add('zoom');
+        });
+    });
+
+    // 3. 이미지를 클릭하면 다시 작아지게 만듭니다.
+    const images = document.querySelectorAll('.panda-list img');
+
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            // "혹시 지금 커져있는 상태니? 그럼 작아져!"
+            img.classList.remove('zoom');
+        });
+    });
+    </script>
+</body>
+</html>
